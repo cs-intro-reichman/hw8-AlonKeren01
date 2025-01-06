@@ -75,7 +75,7 @@
     /** Removes the given name from the follows list of this user. If successful, returns true.
      *  If the name is not in the list, does nothing and returns false. */
     public boolean removeFollowee(String name) {
-        if(name == null){
+        if(name == null || follows(name)){
             return false;
         }
         //// Replace the following statement with your code
@@ -102,7 +102,6 @@
 
         }
 
-        //System.out.println(name + " is not in the list!");
         return false;
     }
 
@@ -138,7 +137,7 @@
      *  (if two users follow each other, they are said to be "friends.") */
     public boolean isFriendOf(User other) {
         //// Replace the following statement with your code
-        if(follows(other.name)){
+        if(follows(other.getName()) && other.follows(name)){
             return true;
         }
         return false;
