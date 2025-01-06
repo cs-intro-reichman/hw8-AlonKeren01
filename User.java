@@ -43,9 +43,15 @@
 
     /** If this user follows the given name, returns true; otherwise returns false. */
     public boolean follows(String name) {
+
+        if(name == null){
+            return false;
+        }
+
+        String name1  = name.substring(0,1).toUpperCase() + name.substring(1).toLowerCase();
         //// Replace the following statement with your code
-        for(int i = 0; i < fCount; i++){
-            if(follows[i].toLowerCase().equals(name)){
+        for(int i = 0; i < this.fCount; i++){
+            if(this.follows[i].equals(name1)){
                 return true;
             }
         }
@@ -54,18 +60,14 @@
     /** Makes this user follow the given name. If successful, returns true. 
      *  If this user already follows the given name, or if the follows list is full, does nothing and returns false; */
     public boolean addFollowee(String name) {
-        //// Replace the following statement with your code
-        if(fCount == 10){
-            //System.out.println("Exceeds the array limit");
+
+        if(name == null || fCount == maxfCount || follows(name)){
             return false;
         }
 
-        if(follows(name)){
-            //System.out.println(name + " is already being followed by you.");
-            return false;
-        }
+        String name1  = name.substring(0,1).toUpperCase() + name.substring(1).toLowerCase();
 
-        follows[fCount] = name;
+        follows[fCount] = name1;
         fCount++;
         return true;
     }
@@ -73,6 +75,9 @@
     /** Removes the given name from the follows list of this user. If successful, returns true.
      *  If the name is not in the list, does nothing and returns false. */
     public boolean removeFollowee(String name) {
+        if(name == null){
+            return false;
+        }
         //// Replace the following statement with your code
         for(int i = 0; i < fCount; i++){
             if(follows[i].equals(name)){
