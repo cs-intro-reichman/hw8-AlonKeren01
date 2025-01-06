@@ -56,12 +56,12 @@
     public boolean addFollowee(String name) {
         //// Replace the following statement with your code
         if(fCount == 10){
-            System.out.println("Exceeds the array limit");
+            //System.out.println("Exceeds the array limit");
             return false;
         }
 
         if(follows(name)){
-            System.out.println(name + " is already being followed by you.");
+            //System.out.println(name + " is already being followed by you.");
             return false;
         }
 
@@ -97,7 +97,7 @@
 
         }
 
-        System.out.println(name + " is not in the list!");
+        //System.out.println(name + " is not in the list!");
         return false;
     }
 
