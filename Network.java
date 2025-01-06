@@ -29,9 +29,9 @@ public class Network {
      *  If there is no such user, returns null.
      *  Notice that the method receives a String, and returns a User object. */
     public User getUser(String name) {
-        /*if(name == null || userCount == 0){
+        if(name == null || userCount == 0){
             return null;
-        }*/
+        }
 
         for(int i = 0; i < userCount; i++){
             if(users[i].getName().toLowerCase().equals(name.toLowerCase())){
@@ -104,7 +104,7 @@ public class Network {
 
         for(int i = 0; i < userCount; i++){
             currentAmount = followeeCount(users[i].getName());
-            
+
             if(currentAmount > popularAmount){
                 popularAmount = currentAmount;
                 mostPopular = users[i];
@@ -137,9 +137,9 @@ public class Network {
 
     // Returns a textual description of all the users in this network, and who they follow.
     public String toString() {
-        String ans = "";
+        String ans = "Network:";
         for(int i = 0; i < userCount; i++){
-            ans = ans + users[i].toString() + "\n";
+            ans = ans + "\n" + users[i].toString();
        }
        return ans;
     }
