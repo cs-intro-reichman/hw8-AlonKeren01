@@ -61,7 +61,7 @@
      *  If this user already follows the given name, or if the follows list is full, does nothing and returns false; */
     public boolean addFollowee(String name) {
 
-        if(name == null || fCount == maxfCount || follows(name)){
+        if(name == null || fCount == maxfCount || this.follows(name)){ //maybe remove the this
             return false;
         }
 
